@@ -8,7 +8,7 @@ We extracted the theme button because its state and behavior are independent. We
 
 ## 2. State: information that changes the screen
 
-In `ThemeToggle.jsx`, `useState(initialTheme)` remembers either `light` or `dark`. Clicking the button calls `setTheme`, which asks React to render again. It does not reload the page or call Bifrost.
+In `ThemeToggle.jsx`, `useState(initialTheme)` remembers either `light` or `dark`. Clicking the button calls `setTheme`, which asks React to render again. It does not reload the page or call the AI provider.
 
 In `App.jsx`, `hasConversation` is calculated from the messages. Before the first user message, we show the welcome screen. After sending, we show the conversation. The welcome notice remains in saved data for compatibility but is hidden from the transcript and message counts.
 
@@ -34,7 +34,7 @@ Reduced-motion preferences disable the existing entrance animations. Contrast an
 
 `test/browser/workspace.spec.js` checks system theme defaults, saved preferences, keyboard toggling, disabled storage, and desktop/mobile layouts in both themes. Existing tests continue to cover saved chats, retry, copying, and backend validation.
 
-These tests use a simulated provider. Stage 1 changes no backend routes, model configuration or Bifrost settings, and makes no paid AI requests.
+These tests use a simulated provider. Stage 1 changes no backend routes or model configuration and makes no paid AI requests.
 
 ## Try one small change
 
